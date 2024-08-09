@@ -12,7 +12,7 @@ Current things reverse engineered:
 
 
 # Todo:
-
+```
 Mana: (Float) but is tied to individual wands, I did manage to find a list of wands in memory at one point, but only one of them seemed to update when I fired it,
 and when i found a couple static pointers to it they were all pointing into garbage upon restart.
 
@@ -36,10 +36,10 @@ Write the actual injector and Dll
 
 Auto restart / continue after making new game (or switch pointers to sigs)
 
-
+```
 
 # Pointers:
-
+```
 "noita.exe"+00E05718
 +0
 +28
@@ -94,9 +94,9 @@ ypos=ypos+(mousey-360)*.44
 
 
 
-
+```
 # Signatures:
-
+```
 
 Update Player velcocity function sig:
 \[ F3 0F 10 07 F3 0F 5C 46 50 F3 0F 11 45 F8 F3 0F 10 47 04 F3 0F 5C 46 54 8B 45 F8 89 41 6C F3 0F 11 45 FC 8B 45 FC 89 41 70 8B 07 89 46 50 8B 47 04 89 46 54 5F 5E 8B E5 5D \]
@@ -117,3 +117,4 @@ if mouseX not between etc, then pointers
 are invalid and it is newgame, so
 sys exit, start noita.exe again and
 reinject, and call continue??
+```
