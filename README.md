@@ -99,7 +99,7 @@ ypos=ypos+(mousey-360)*.44
 ```
 
 Update Player velcocity function sig:
-\[ F3 0F 10 07 F3 0F 5C 46 50 F3 0F 11 45 F8 F3 0F 10 47 04 F3 0F 5C 46 54 8B 45 F8 89 41 6C F3 0F 11 45 FC 8B 45 FC 89 41 70 8B 07 89 46 50 8B 47 04 89 46 54 5F 5E 8B E5 5D \]
+[ F3 0F 10 07 F3 0F 5C 46 50 F3 0F 11 45 F8 F3 0F 10 47 04 F3 0F 5C 46 54 8B 45 F8 89 41 6C F3 0F 11 45 FC 8B 45 FC 89 41 70 8B 07 89 46 50 8B 47 04 89 46 54 5F 5E 8B E5 5D ]
 I accidentally died in a wall and had to start
 new game after finding this.
 
@@ -110,7 +110,7 @@ you should nop, or if they are just the sig.
 
             
 Continue Game function sig:
-CC CC CC 55 8B EC 56 8B 75 08 B9
+[ CC CC CC 55 8B EC 56 8B 75 08 B9 ]
 
 maybe i could do, 
 if mouseX not between etc, then pointers
