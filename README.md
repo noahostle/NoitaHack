@@ -60,6 +60,31 @@ Auto restart / continue after making new game (or switch pointers to sigs)
 
 
 
+offset between each wand:
+3c8
+wands base pointer:
+"noita.exe"+00E22298    this may be borked, but struct for wnad is right (unfinished)
++28
++40
++20
+-e98
+\___
+    + 0   --> wand 1 mana            (float)
+    + 4   --> wand 1 max mana        (float)
+    + 8   --> wand 1 recharge rate   (float)
+    + 8c --> wand 1 spells / cast    (4 byte int)
+    + 90 --> wand 1 shuffle?         (4 byte int, 0=No)
+    + 94 --> wand 1 recharge time    (4 byte int, ingame = 1.6666 * value [in .1s])
+    + 98 --> wand 1 capacity         (4 byte int)
+
+
+    
+
+
+
+
+
+
 "noita.exe"+00E20470
 \___
     + 50 --> playerX   (float, -1 = left)
