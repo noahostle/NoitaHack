@@ -47,9 +47,13 @@ Auto restart / continue after making new game (or switch pointers to sigs)
 \___
     Player Base !!!
     \___
+	+ 20 > + 10C --> yaccel    (float, ~-70 is flying)
+	+ 20 > + 108 --> xaccel    (float, ~60 is walking)
         + 20 > + 110 --> levi    (float, 0.0 - 3.0)
+
         + 2C > + 48  --> hp      (double, 4% of actual hp)
         + 2C > + 50  --> maxhp   (double, 4% of actual maxhp)
+
         + F8 > + 48  --> cash    (4 byte int, true to val)
 	
 	      + F4 > + 6C  --> xVel    (float, -1 = left)
@@ -69,6 +73,7 @@ wands base pointer:
 +20
 -e98
 \___
+-4:
     + 0   --> wand 1 mana            (float)
     + 4   --> wand 1 max mana        (float)
     + 8   --> wand 1 recharge rate   (float)
@@ -122,6 +127,22 @@ ypos=ypos+(mousey-360)*.44
 ```
 # Signatures:
 ```
+
+
+Damage enemy sig:                      |sub x1 x2| \/ move x1 into esi+48
+F3 0F10 44 24 18 F2 0F10 4E 48 0F5A C0 F2 0F5C C8 F2 0F11 4E 48 F2 0F10 46 48 F2 0F10 4E 50 66 0F2F C8           
+edited func for ohk:                   |xor x1 x1| \/ move x1 into esi+48
+F3 0F10 44 24 18 F2 0F10 4E 48 0F5A C0 66 0FEF C9 F2 0F11 4E 48 F2 0F10 46 48 F2 0F10 4E 50 66 0F2F C8           
+
+instead of subtrcting the two registers (enemy hp -dmg likely) to get new enemy hp, we just xor the registers to get 0
+i found this func by finding what wrote to enemy hp, and saw that x1 was getting moved into the addr, so i put a zero in it and voila,. enemy hp = 0
+
+oh shit, this ohk's the player too :cry:
+
+have to edit some above assembly to jne if esi+48 = player hp
+
+
+
 
 Update Player velcocity function sig:
 [ F3 0F 10 07 F3 0F 5C 46 50 F3 0F 11 45 F8 F3 0F 10 47 04 F3 0F 5C 46 54 8B 45 F8 89 41 6C F3 0F 11 45 FC 8B 45 FC 89 41 70 8B 07 89 46 50 8B 47 04 89 46 54 5F 5E 8B E5 5D ]
