@@ -140,6 +140,7 @@ i found this func by finding what wrote to enemy hp, and saw that x1 was getting
 oh shit, this ohk's the player too :cry:
 
 have to edit some above assembly to jne if esi+48 = player hp
+or find check if hp < 0 func and nop it or smth
 
 
 
